@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'likes/:post_id' => 'likes#create',as: :create_like
+  delete 'likes/:post_id' => 'likes#destroy',as: :destroy_like
+
   root :to => "posts#index"
   devise_for :users
   resources :posts

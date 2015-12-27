@@ -9,8 +9,9 @@
       <th>Reply</th>
       <th>Image</th>
       <th>Movie</th>
+      <th>likes</th>
       <th>contributor</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -21,10 +22,16 @@
         <td><%= post.reply_id %></td>
         <td><%= post.image %></td>
         <td><%= post.movie %></td>
+        <td><%= post.likes.count %></td>
         <td><%= post.user.email %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if post.likes.where(user_id:current_user.id).blank? %>
+        <td><%= link_to 'いいね',create_like_path(post.id), method: :post %></td>
+        <% else %>
+        <td><%= link_to 'いいねを取り消す',destroy_like_path(post.id), method: :delete %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
