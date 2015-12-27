@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'homes/index'
-root :to => "home#index"
+  root :to => "posts#index"
   devise_for :users
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
