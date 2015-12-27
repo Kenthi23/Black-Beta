@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220075346) do
+ActiveRecord::Schema.define(version: 20151227060753) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "body"
     t.integer  "reply_id"
     t.string   "image"
     t.string   "movie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "univs", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151220075346) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "univ_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
