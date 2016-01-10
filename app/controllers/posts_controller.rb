@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.joins(:user).where(User.arel_table[:univ_id].eq(current_user.univ_id))
   end
 
   # GET /posts/1
