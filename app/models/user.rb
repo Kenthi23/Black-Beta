@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   belongs_to :univ
   has_many :posts
   has_many :likes
+  has_many :sent_messsage, :class_name => 'Message', :foreign_key => 'from_id'
+  has_many :recieved_messsage, :class_name => 'Message', :foreign_key => 'to_id'
 end
