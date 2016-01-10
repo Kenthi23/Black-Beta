@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Reply:</strong>
+  <%= @post.reply_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @post.movie %>
+</p>
+
+<p>
+  <strong>contributor:</strong>
+  <%= @post.user.email %>
+</p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+<% if @post.image? %>
+　　<%= image_tag @post.image.url %>
+　<% else %>
+　　<%= image_tag 'noimage.gif' %>
+　<% end %>
