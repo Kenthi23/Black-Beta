@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   delete 'likes/:post_id' => 'likes#destroy',as: :destroy_like
 
   root :to => "posts#index"
+  resources :messages
   devise_for :users
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
