@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root :to => "posts#index"
   resources :messages
+  resources :messages
   devise_for :users
   resources :posts
   # The priority is based upon order of creation: first created -> highest priority.
